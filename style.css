@@ -1,0 +1,147 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.clock-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.clock-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+}
+
+.timezone-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.digital-time {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Courier New', monospace;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.date-display {
+    font-size: 0.95rem;
+    color: #666;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.offset {
+    font-size: 0.85rem;
+    color: #999;
+    margin-top: 10px;
+}
+
+.day-of-week {
+    font-size: 0.9rem;
+    color: #764ba2;
+    margin-top: 8px;
+    font-weight: 600;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .clocks-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .clock-card {
+        padding: 20px;
+    }
+
+    .digital-time {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .timezone-name {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .clocks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .digital-time {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animation for clock updates */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.digital-time {
+    animation: pulse 1s ease-in-out infinite;
+}
